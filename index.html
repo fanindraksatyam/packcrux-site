@@ -1,672 +1,533 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PackCrux | Heavy-Duty Industrial Packing Tape</title>
-
-<style>
-:root {
-  /* Backgrounds */
-  --bg:#0b2540;          /* Deep Navy (main background) */
-  --panel:#ffffff;       /* Card / surface background */
-  
-  /* Borders & structure */
-  --border:#d7dce3;      /* Soft industrial gray */
-
-  /* Text */
-  --text:#0f172a;        /* Near-black navy for main text */
-  --muted:#475569;       /* Blue-gray for secondary text */
-
-  /* Accent */
-  --accent:#ff9f1c;      /* Keep your Amazon-orange CTA */
-}
-
-
-* { box-sizing:border-box; margin:0; padding:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif }
-
-body {
-  background:linear-gradient(180deg,#121723,var(--bg));
-  color:var(--text);
-  line-height:1.55;
-}
-
-/* Header */
-header {
-  padding:18px 32px;
-  border-bottom:1px solid var(--border);
-}
-.logo {
-  display:flex;
-  align-items:center;
-}
-
-.logo img {
-  height:32px;          /* adjust if needed */
-  width:auto;
-  display:block;
-}
-.logo img { height:36px; }
-
-
-/* Hero */
-.hero {
-  max-width:1200px;
-  margin:auto;
-  padding:72px 32px;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:64px;
-}
-
-.hero h1 {
-  font-size:44px;
-  line-height:1.2;
-  margin-bottom:18px;
-  color:#f8fafc; /* bright text on dark navy */
-}
-
-.hero p {
-  color:#c7d2fe; /* muted light text */
-  font-size:18px;
-  max-width:520px;
-  margin-bottom: 20px; /* was 36px */
-}
-
-
-.cta {
-  display:inline-block;
-  background:linear-gradient(135deg,var(--accent),#ffb347);
-  color:#000;
-  padding:16px 34px;
-  font-weight:800;
-  border-radius:6px;
-  text-decoration:none;
-}
-
-/* SVG Product */
-.product {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:34px;
-}
-
-svg { width:100%; height:auto }
-
-/* Specs */
-.specs {
-  max-width:1200px;
-  margin:auto;
-  padding:90px 32px;
-}
-.specs h2 {
-  font-size:36px;
-  margin-bottom:56px;
-}
-.spec-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-}
-
-
-.spec {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:28px;
-  color:var(--text);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-    
-}
-.spec h3,
-.pack h3,
-
-.spec p,
-.bulk p,
-.pack span {
-  color:var(--muted);
-}
-
-
-.spec:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow:
-    0 0 0 1px rgba(255,159,28,0.30),
-    0 18px 40px rgba(15,23,42,0.18),
-    0 0 30px rgba(255,159,28,0.40);
-}
-
-
-
-.spec-image {
-  background:#0f141c;
-  border:1px solid var(--border);
-  border-radius:10px;
-  height:140px;
-  margin-bottom:20px;
-  overflow:hidden;
-}
-
-.spec-image img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-
-.spec h3 {
-  font-size:20px;
-  font-weight:800;
-  margin-bottom:10px;
-}
-
-.spec p {
-  color:var(--muted);
-  font-size:15px;
-}
-
-
-/* Bulk Buyer */
-.bulk {
-  max-width:1200px;
-  margin:auto;
-  padding:90px 32px;
-  border-top:1px solid var(--border);
-}
-.bulk h2 {
-  font-size:34px;
-  margin-bottom:24px;
-}
-.bulk p {
-  color:var(--muted);
-  max-width:520px;
-  margin-bottom:40px;
-}
-.pack-row {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
-}
-.pack {
-  background:var(--panel); /* white card */
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:26px;
-  text-align:center;
-  color:var(--text);
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-.spec h3,
-.pack h3,
-.specs h2,
-.bulk h2 {
-  color:var(--text);
-}
-
-.spec p,
-.bulk p,
-.pack span {
-  color:var(--muted);
-}
-
-
-.pack:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow:
-    0 0 0 1px rgba(255,159,28,0.30),
-    0 18px 40px rgba(15,23,42,0.18),
-    0 0 30px rgba(255,159,28,0.40);
-}
-
-
-/* Card headings on white surfaces */
-.spec h3,
-.pack h3,
-.specs h2,
-.bulk h2 {
-  color:var(--text);
-}
-
-/* Secondary text on white cards */
-.spec p,
-.pack span,
-.bulk p {
-  color:var(--muted);
-}
-
-.pack-image {
-  background:#0f141c;
-  border:1px solid var(--border);
-  border-radius:10px;
-  height:140px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--muted);
-  font-weight:700;
-  margin-bottom:18px;
-  overflow: hidden;
-}
-.pack-image img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition: transform 0.25s ease;
-}
-
-.pack:hover .pack-image img {
-  transform: scale(1.04);
-}
-
-.pack-image img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-
-.pack h3 {
-  font-size:18px;
-  font-weight:800;
-  margin-bottom:6px;
-}
-.pack h3 {
-  color:var(--text);
-}
-
-
-.pack span {
-  display:block;
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:18px;
-}
-
-.pack .cta {
-  display:inline-block;
-  padding:12px 22px;
-  font-size:14px;
-}
-
-
-/* Contact */
-.contact {
-  padding:90px 32px;
-  background:#f8fafc; /* soft light background */
-  border-top:1px solid var(--border);
-}
-
-.contact-inner {
-  max-width:800px;
-  margin:auto;
-}
-.contact h2 {
-  color:var(--text);
-}
-
-.contact h2 {
-  font-size:32px;
-  margin-bottom:14px;
-}
-.contact p {
-  color: #475569;        /* slate-600 for light background */
-  font-size: 16px;
-  font-weight: 500;
-  max-width: 560px;
-  margin-bottom: 48px;
-}
-
-/* Contact section lead text */
-.contact > .contact-inner > p {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.6;
-  color: #1e293b; /* slate-800 */
-}
-
-form {
-  display:grid;
-  gap:18px;
-}
-input,textarea {
-  background:#ffffff;
-  border:1px solid var(--border);
-  color:var(--text);
-  padding:14px;
-  border-radius:6px;
-}
-
-textarea { min-height:140px }
-button {
-  width:200px;
-  background:#2a313d;
-  border:1px solid #3c4454;
-  color:#fff;
-  padding:14px;
-  font-weight:800;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* ===============================
-   FOOTER
-   =============================== */
-
-.site-footer {
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 23, 42, 0),
-    #020617
-  );
-  padding: 40px 16px 32px;
-  text-align: center;
-}
-
-.site-footer p {
-  color: #cbd5e1;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-
-
-
-/* Mobile */
-@media (max-width:900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding:64px 24px;
-  }
-
-  .pack-row {
-    grid-template-columns: 1fr;
-  }
-
-  .spec-grid {
-    grid-template-columns: 1fr;
-  }
-
-  header { padding:16px 24px }
-  .hero h1 { font-size:34px }
-}
-
-/* ===============================
-   DARK SECTION TEXT FIX (FINAL)
-   =============================== */
-
-/* Section backgrounds are dark, so text must be light */
-.specs h2,
-.bulk h2 {
-  color: #f8fafc;
-}
-
-/* Supporting paragraph text in dark sections */
-.bulk p {
-  color: #c7d2fe;
-}
-
-/* ===============================
-   SURFACE THEME SYSTEM (LOCKED)
-   =============================== */
-
-/* Dark background surfaces */
-.surface-dark {
-  color: #f8fafc;
-}
-
-.surface-dark h1,
-.surface-dark h2,
-.surface-dark h3 {
-  color: #f8fafc;
-}
-
-.surface-dark p {
-  color: #c7d2fe;
-}
-
-/* Light background surfaces */
-.surface-light {
-  color: var(--text);
-}
-
-.surface-light h1,
-.surface-light h2,
-.surface-light h3 {
-  color: var(--text);
-}
-
-.surface-light p,
-.surface-light span {
-  color: var(--muted);
-}
-
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Packcrux — Industrial Packing Tape</title>
+  <meta name="description" content="Industrial-grade packing tape engineered for aggressive adhesion, reinforced thickness, and consistent sealing." />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Inter","Arial","Noto Sans","sans-serif"],
+          },
+          colors: {
+            ink: {
+              50: "#f6f7f8",
+              100: "#eceef1",
+              200: "#d6dbe1",
+              300: "#b2bbc6",
+              400: "#7c8a9b",
+              500: "#536174",
+              600: "#3b4656",
+              700: "#2a3240",
+              800: "#1a202b",
+              900: "#0b0b0c",
+            },
+            brand: {
+              400: "#fbbf24", /* amber */
+              500: "#f59e0b",
+              600: "#d97706",
+            }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(0,0,0,.25)",
+            ring: "0 0 0 1px rgba(255,255,255,.08)",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle grid background */
+    .bg-grid {
+      background-image:
+        radial-gradient(transparent 1px, rgba(11,11,12,1) 1px),
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 24px 24px, 48px 48px, 48px 48px;
+      background-position: -1px -1px, -1px -1px, -1px -1px;
+    }
+
+    /* Smooth anchor scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Improve focus outlines */
+    :focus-visible { outline: 2px solid rgba(245,158,11,.9); outline-offset: 3px; }
+
+    /* “Glass” surfaces */
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Small hover lift */
+    .lift { transition: transform .2s ease, box-shadow .2s ease; }
+    .lift:hover { transform: translateY(-2px); box-shadow: 0 18px 50px rgba(0,0,0,.35); }
+
+    /* Prevent iOS auto-zoom on inputs */
+    input, textarea { font-size: 16px; }
+  </style>
 </head>
 
-<body>
+<body class="bg-ink-900 text-white antialiased">
 
-<header>
-  <div class="logo">
-  <img
-    src="images/packcrux-logo.png"
-    alt="PackCrux"
-  />
-</div>
+  <!-- Background accents -->
+  <div class="pointer-events-none fixed inset-0 bg-grid opacity-[0.25]"></div>
+  <div class="pointer-events-none fixed -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-brand-500/20 blur-3xl"></div>
+  <div class="pointer-events-none fixed -bottom-40 right-[-120px] h-[520px] w-[520px] rounded-full bg-white/10 blur-3xl"></div>
 
-</header>
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink-900/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="https://www.packcrux.us/images/packcrux-logo.png" alt="Packcrux" class="h-7 w-auto" />
+        <span class="hidden text-sm text-white/70 md:inline">Industrial Packing Tape</span>
+      </a>
 
-<section class="specs surface-dark">
+      <nav class="hidden items-center gap-6 text-sm text-white/75 md:flex">
+        <a class="hover:text-white" href="#products">Products</a>
+        <a class="hover:text-white" href="#performance">Performance</a>
+        <a class="hover:text-white" href="#specs">Specs</a>
+        <a class="hover:text-white" href="#faq">FAQ</a>
+        <a class="hover:text-white" href="#contact">Contact</a>
+      </nav>
 
-
-  <div>
-    <h1>Industrial-Grade Packing Tape for High-Volume Shipping</h1>
-    <p>
-      Engineered for aggressive adhesion, reinforced thickness, and
-      consistent sealing across pallets, cartons, and freight handling.
-    </p>
+      <div class="flex items-center gap-2">
+        <a href="#products" class="inline-flex items-center justify-center rounded-xl bg-white/10 px-3 py-2 text-sm font-medium text-white shadow-ring hover:bg-white/15">
+          View Packs
+        </a>
+        <a href="#contact" class="hidden items-center justify-center rounded-xl bg-brand-500 px-3 py-2 text-sm font-semibold text-ink-900 shadow-soft hover:bg-brand-400 md:inline-flex">
+          Get a Quote
+        </a>
       </div>
-
-  <div class="product">
-    <!-- Commercial-safe inline SVG -->
-    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="600" height="320" rx="16" fill="#f8fafc"/>
-<ellipse cx="300" cy="160" rx="130" ry="110" fill="#cbd5e1"/>
-<ellipse cx="300" cy="160" rx="70" ry="60" fill="#e5e7eb"/>
-      <text x="300" y="298" text-anchor="middle" fill="#9aa3ad" font-size="14" font-weight="700">
-        HEAVY-DUTY TAPE ROLL (ILLUSTRATION)
-      </text>
-    </svg>
-  </div>
-</section>
-
-<section class="specs">
-  <h2>Engineered for Industrial Performance</h2>
-
-  <div class="spec-grid">
-
-    <div class="spec">
-      <div class="spec-image">
-  <img src="images/adhesion.jpg" alt="High adhesion industrial packing tape">
-</div>
-
-      <h3>High Adhesion</h3>
-      <p>
-        Instant bonding adhesive designed to hold under vibration,
-        stacking pressure, and long-distance transit.
-      </p>
     </div>
+  </header>
 
-    <div class="spec">
-      <div class="spec-image">
-  <img src="images/thickness.jpg" alt="Reinforced thickness packing tape roll">
-</div>
-      <h3>Reinforced Thickness & Length</h3>
-      <p>
-        Extra-thick film construction with extended roll length
-        to reduce tape breaks and roll changeovers.
-      </p>
-    </div>
+  <!-- Hero -->
+  <main id="top" class="relative">
+    <section class="mx-auto max-w-6xl px-4 pb-16 pt-12 md:pb-20 md:pt-16">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 shadow-ring">
+            <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+            Built for warehouses • sellers • high-volume ops
+          </p>
 
-    <div class="spec">
-      <div class="spec-image">
-  <img src="images/warehouse.jpg" alt="Warehouse-grade packing tape on cartons">
-</div>
+          <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            Industrial‑Grade Packing Tape for <span class="text-brand-400">High‑Volume Shipping</span>
+          </h1>
 
-      <h3>Warehouse-Grade Reliability</h3>
-      <p>
-        Performs consistently on recycled cartons, heavy corrugation,
-        and stretch-wrapped shipments.
-      </p>
-    </div>
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-white/75">
+            Engineered for aggressive adhesion, reinforced thickness, and consistent sealing across pallets, cartons, and freight handling.
+          </p>
 
-  </div>
-</section>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#products" class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-5 py-3 text-sm font-semibold text-ink-900 shadow-soft hover:bg-brand-400">
+              Shop Packs on Amazon
+            </a>
+            <a href="#performance" class="inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white shadow-ring hover:bg-white/15">
+              See Performance
+            </a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 gap-3">
+            <div class="glass rounded-2xl p-4">
+              <p class="text-xs text-white/60">Adhesion</p>
+              <p class="mt-1 text-sm font-semibold">Instant bond</p>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <p class="text-xs text-white/60">Strength</p>
+              <p class="mt-1 text-sm font-semibold">Reinforced film</p>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <p class="text-xs text-white/60">Consistency</p>
+              <p class="mt-1 text-sm font-semibold">Reliable seal</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero image (real) -->
+        <div class="relative">
+          <div class="lift glass rounded-3xl p-6 shadow-soft">
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-semibold">PACKCRUX CLEAR PACKING TAPE</p>
+              <span class="rounded-full bg-brand-500/20 px-3 py-1 text-xs font-medium text-brand-400">Hero</span>
+            </div>
+
+            <div class="mt-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 p-5">
+              <img
+                src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/Hero%20Image.png"
+                alt="Packcrux industrial packing tape"
+                class="h-56 w-full rounded-2xl object-cover"
+                loading="eager"
+              />
+
+              <div class="mt-5 grid grid-cols-3 gap-3 text-xs text-white/70">
+                <div class="rounded-xl bg-white/5 p-3">
+                  <p class="font-semibold text-white">Clear finish</p>
+                  <p class="mt-1">Transparent tape that looks clean on cartons.</p>
+                </div>
+                <div class="rounded-xl bg-white/5 p-3">
+                  <p class="font-semibold text-white">Smooth unwind</p>
+                  <p class="mt-1">Optimized for tape guns & fast packing lines.</p>
+                </div>
+                <div class="rounded-xl bg-white/5 p-3">
+                  <p class="font-semibold text-white">Seals tough</p>
+                  <p class="mt-1">Holds under vibration, stacking, and transit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs text-white/60">
+            <p>Want custom branding or bulk pallets?</p>
+            <a class="text-brand-400 hover:text-brand-300" href="#contact">Talk to sales →</a>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="relative border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight">Built for Bulk Buyers & Operations Teams</h2>
+            <p class="mt-2 max-w-2xl text-white/70">
+              Optimized for procurement efficiency — available in multiple pack sizes to match shipping volume and warehouse scale.
+            </p>
+          </div>
+          <p class="text-sm text-white/60">Replace the Amazon links with your real ASINs.</p>
+        </div>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <article class="lift glass rounded-3xl p-5">
+            <div class="flex items-start justify-between">
+              <h3 class="text-lg font-semibold">6‑Roll Pack</h3>
+              <span class="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">Small Teams</span>
+            </div>
+            <div class="mt-4 rounded-2xl bg-white/5 p-4">
+              <img
+                src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/6%20Rolls.png"
+                alt="Packcrux 6 rolls"
+                class="h-40 w-full rounded-xl object-contain"
+                loading="lazy"
+              />
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-white/70">
+              <li>• Reliable seal for daily fulfillment</li>
+              <li>• Clear finish for clean presentation</li>
+              <li>• Great starter pack for small ops</li>
+            </ul>
+            <div class="mt-5 flex items-center justify-between">
+              <p class="text-sm text-white/60"><span class="font-semibold text-white">$</span> <span class="text-white/80">—</span> <span class="text-xs">(placeholder)</span></p>
+              <a href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-ink-900 hover:bg-brand-400">Buy on Amazon</a>
+            </div>
+          </article>
+
+          <article class="lift glass rounded-3xl p-5">
+            <div class="flex items-start justify-between">
+              <h3 class="text-lg font-semibold">12‑Roll Pack</h3>
+              <span class="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">Growing Sellers</span>
+            </div>
+            <div class="mt-4 rounded-2xl bg-white/5 p-4">
+              <img
+                src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/12%20Rolls.png"
+                alt="Packcrux 12 rolls"
+                class="h-40 w-full rounded-xl object-contain"
+                loading="lazy"
+              />
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-white/70">
+              <li>• Instant bonding adhesive</li>
+              <li>• Holds under vibration & stacking</li>
+              <li>• Strong value for busy weeks</li>
+            </ul>
+            <div class="mt-5 flex items-center justify-between">
+              <p class="text-sm text-white/60"><span class="font-semibold text-white">$</span> <span class="text-white/80">—</span> <span class="text-xs">(placeholder)</span></p>
+              <a href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-ink-900 hover:bg-brand-400">Buy on Amazon</a>
+            </div>
+          </article>
+
+          <article class="lift glass rounded-3xl p-5">
+            <div class="flex items-start justify-between">
+              <h3 class="text-lg font-semibold">24‑Roll Pack</h3>
+              <span class="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">Warehouses</span>
+            </div>
+            <div class="mt-4 rounded-2xl bg-white/5 p-4">
+              <img
+                src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/24%20Rolls.png"
+                alt="Packcrux 24 rolls"
+                class="h-40 w-full rounded-xl object-contain"
+                loading="lazy"
+              />
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-white/70">
+              <li>• Extended length reduces roll swaps</li>
+              <li>• Reinforced film for fewer breaks</li>
+              <li>• Best value for steady shipping</li>
+            </ul>
+            <div class="mt-5 flex items-center justify-between">
+              <p class="text-sm text-white/60"><span class="font-semibold text-white">$</span> <span class="text-white/80">—</span> <span class="text-xs">(placeholder)</span></p>
+              <a href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-ink-900 hover:bg-brand-400">Buy on Amazon</a>
+            </div>
+          </article>
+
+          <article class="lift glass rounded-3xl p-5">
+            <div class="flex items-start justify-between">
+              <h3 class="text-lg font-semibold">36‑Roll Pack</h3>
+              <span class="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">High‑Volume Ops</span>
+            </div>
+            <div class="mt-4 rounded-2xl bg-white/5 p-4">
+              <img
+                src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/36%20Rolls.png"
+                alt="Packcrux 36 rolls"
+                class="h-40 w-full rounded-xl object-contain"
+                loading="lazy"
+              />
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-white/70">
+              <li>• Procurement-friendly bulk packs</li>
+              <li>• Consistent performance across shifts</li>
+              <li>• Built for freight handling</li>
+            </ul>
+            <div class="mt-5 flex items-center justify-between">
+              <p class="text-sm text-white/60"><span class="font-semibold text-white">$</span> <span class="text-white/80">—</span> <span class="text-xs">(placeholder)</span></p>
+              <a href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-ink-900 hover:bg-brand-400">Buy on Amazon</a>
+            </div>
+          </article>
 
 
 
-<section class="bulk surface-dark">
+        <!-- Secondary CTA -->
+        <div class="mt-10 glass rounded-3xl p-6 md:flex md:items-center md:justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">Need pallet pricing or distributor terms?</h3>
+            <p class="mt-1 text-white/70">Share your monthly tape usage and carton types — we’ll recommend the best pack and provide a quote.</p>
+          </div>
+          <a href="#contact" class="mt-4 inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/15 md:mt-0">
+            Request Bulk Quote
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <h2>Built for Bulk Buyers & Operations Teams</h2>
-  <p>
-    Optimized for procurement efficiency — available in multiple pack sizes
-    to match shipping volume and warehouse scale.
-  </p>
+    <!-- Performance -->
+    <section id="performance" class="relative border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <h2 class="text-3xl font-semibold tracking-tight">Engineered for Industrial Performance</h2>
+        <p class="mt-2 max-w-2xl text-white/70">
+          Designed for real warehouse conditions: recycled cartons, heavy corrugation, stretch wrap, and long-distance transit.
+        </p>
 
-  <div class="pack-row">
-    <div class="pack">
-  <div class="pack-image">
-  <img
-    src="data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'>
-      <rect width='600' height='300' rx='16' fill='%231b2230'/>
-      <ellipse cx='300' cy='150' rx='130' ry='110' fill='%232d3545'/>
-      <ellipse cx='300' cy='150' rx='70' ry='60' fill='%230f141c'/>
-      <text x='300' y='260' text-anchor='middle' fill='%239aa3ad'
-        font-size='18' font-weight='700'>
-        PACK IMAGE
-      </text>
-    </svg>"
-    alt="PackCrux packing tape pack"
-  />
-</div>
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <article class="lift glass rounded-3xl p-5">
+            <img src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/adhesion.jpg" alt="High adhesion" class="h-40 w-full rounded-2xl object-cover" loading="lazy" />
+            <h3 class="mt-4 text-lg font-semibold">High Adhesion</h3>
+            <p class="mt-2 text-sm text-white/70">Instant bonding adhesive designed to hold under vibration, stacking pressure, and long‑distance transit.</p>
+          </article>
 
-  <h3>6-Roll Pack</h3>
-  <span>Small Teams</span>
-  <a class="cta" href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank">
-    Buy on Amazon
-  </a>
-</div>
+          <article class="lift glass rounded-3xl p-5">
+            <img src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/thickness.jpg" alt="Tape thickness" class="h-40 w-full rounded-2xl object-cover" loading="lazy" />
+            <h3 class="mt-4 text-lg font-semibold">Reinforced Thickness & Length</h3>
+            <p class="mt-2 text-sm text-white/70">Extra-thick film construction with extended roll length to reduce tape breaks and roll changeovers.</p>
+          </article>
 
-    <div class="pack">
-  <div class="pack-image">
-  <img
-    src="data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'>
-      <rect width='600' height='300' rx='16' fill='%231b2230'/>
-      <ellipse cx='300' cy='150' rx='130' ry='110' fill='%232d3545'/>
-      <ellipse cx='300' cy='150' rx='70' ry='60' fill='%230f141c'/>
-      <text x='300' y='260' text-anchor='middle' fill='%239aa3ad'
-        font-size='18' font-weight='700'>
-        PACK IMAGE
-      </text>
-    </svg>"
-    alt="PackCrux packing tape pack"
-  />
-</div>
+          <article class="lift glass rounded-3xl p-5">
+            <img src="https://raw.githubusercontent.com/fanindraksatyam/packcrux-site/main/images/warehouse.jpg" alt="Warehouse reliability" class="h-40 w-full rounded-2xl object-cover" loading="lazy" />
+            <h3 class="mt-4 text-lg font-semibold">Warehouse‑Grade Reliability</h3>
+            <p class="mt-2 text-sm text-white/70">Performs consistently on recycled cartons, heavy corrugation, and stretch‑wrapped shipments.</p>
+          </article>
+        </div>
 
-  <h3>12-Roll Pack</h3>
-  <span>Growing Sellers</span>
-  <a class="cta" href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank">
-    Buy on Amazon
-  </a>
-</div>
+        <!-- Social proof placeholders -->
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <div class="glass rounded-3xl p-6">
+            <p class="text-sm text-white/60">Operations Manager</p>
+            <p class="mt-2 text-sm leading-relaxed text-white/80">“We cut re-taping and returns after switching to Packcrux. The seal stays put through transit.”</p>
+            <p class="mt-4 text-xs text-white/50">Testimonial placeholder</p>
+          </div>
+          <div class="glass rounded-3xl p-6">
+            <p class="text-sm text-white/60">Warehouse Lead</p>
+            <p class="mt-2 text-sm leading-relaxed text-white/80">“Unwinds smoothly and holds on recycled cartons — no more edge lift on heavy boxes.”</p>
+            <p class="mt-4 text-xs text-white/50">Testimonial placeholder</p>
+          </div>
+          <div class="glass rounded-3xl p-6">
+            <p class="text-sm text-white/60">E‑commerce Seller</p>
+            <p class="mt-2 text-sm leading-relaxed text-white/80">“Looks clean and professional. The clear tape keeps our branding visible.”</p>
+            <p class="mt-4 text-xs text-white/50">Testimonial placeholder</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="pack">
-  <div class="pack-image">
-  <img
-    src="data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'>
-      <rect width='600' height='300' rx='16' fill='%231b2230'/>
-      <ellipse cx='300' cy='150' rx='130' ry='110' fill='%232d3545'/>
-      <ellipse cx='300' cy='150' rx='70' ry='60' fill='%230f141c'/>
-      <text x='300' y='260' text-anchor='middle' fill='%239aa3ad'
-        font-size='18' font-weight='700'>
-        PACK IMAGE
-      </text>
-    </svg>"
-    alt="PackCrux packing tape pack"
-  />
-</div>
+    <!-- Specs (placeholders) -->
+    <section id="specs" class="relative border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight">Tape Specs</h2>
+            <p class="mt-2 max-w-2xl text-white/70">Use this area to list your exact width, thickness, adhesive type, and roll length.</p>
+          </div>
+          <span class="text-sm text-white/60">Specs are placeholders</span>
+        </div>
 
-  <h3>24-Roll Pack</h3>
-  <span>Warehouses</span>
-  <a class="cta" href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank">
-    Buy on Amazon
-  </a>
-</div>
+        <div class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+          <div class="grid md:grid-cols-2">
+            <div class="p-6">
+              <p class="text-sm font-semibold">Core performance</p>
+              <dl class="mt-4 space-y-3 text-sm">
+                <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+                  <dt class="text-white/60">Adhesive</dt>
+                  <dd class="font-medium">Acrylic (placeholder)</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+                  <dt class="text-white/60">Film</dt>
+                  <dd class="font-medium">BOPP (placeholder)</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+                  <dt class="text-white/60">Thickness</dt>
+                  <dd class="font-medium">— mil (placeholder)</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <dt class="text-white/60">Roll length</dt>
+                  <dd class="font-medium">— yd (placeholder)</dd>
+                </div>
+              </dl>
+            </div>
 
-<div class="pack">
-  <div class="pack-image">
-  <img
-    src="data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'>
-      <rect width='600' height='300' rx='16' fill='%231b2230'/>
-      <ellipse cx='300' cy='150' rx='130' ry='110' fill='%232d3545'/>
-      <ellipse cx='300' cy='150' rx='70' ry='60' fill='%230f141c'/>
-      <text x='300' y='260' text-anchor='middle' fill='%239aa3ad'
-        font-size='18' font-weight='700'>
-        PACK IMAGE
-      </text>
-    </svg>"
-    alt="PackCrux packing tape pack"
-  />
-</div>
+            <div class="border-t border-white/10 p-6 md:border-l md:border-t-0">
+              <p class="text-sm font-semibold">Operations fit</p>
+              <ul class="mt-4 space-y-2 text-sm text-white/75">
+                <li>• Works on recycled cartons and heavy corrugation</li>
+                <li>• Compatible with standard tape guns</li>
+                <li>• Clear finish for clean labels and branding</li>
+                <li>• Consistent unwind for fast packing lines</li>
+              </ul>
+              <div class="mt-6 rounded-2xl bg-brand-500/10 p-4">
+                <p class="text-sm font-semibold text-brand-400">Pro tip</p>
+                <p class="mt-1 text-sm text-white/75">Add a “How to choose the right pack size” guide here to improve conversions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h3>36-Roll Pack</h3>
-  <span>High-Volume Ops</span>
-  <a class="cta" href="https://www.amazon.com/dp/PLACEHOLDER" target="_blank">
-    Buy on Amazon
-  </a>
-</div>
+    <!-- FAQ -->
+    <section id="faq" class="relative border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <h2 class="text-3xl font-semibold tracking-tight">FAQ</h2>
+        <p class="mt-2 max-w-2xl text-white/70">A few common questions buyers ask. Replace these with your real answers.</p>
 
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <details class="glass rounded-3xl p-5">
+            <summary class="cursor-pointer list-none text-sm font-semibold">Is the tape clear/transparent?</summary>
+            <p class="mt-3 text-sm text-white/70">Yes — it’s designed to look clean on cartons while delivering a strong seal. (Placeholder)</p>
+          </details>
+          <details class="glass rounded-3xl p-5">
+            <summary class="cursor-pointer list-none text-sm font-semibold">Does it work on recycled cartons?</summary>
+            <p class="mt-3 text-sm text-white/70">It’s engineered for warehouse-grade conditions, including recycled and heavy corrugation. (Placeholder)</p>
+          </details>
+          <details class="glass rounded-3xl p-5">
+            <summary class="cursor-pointer list-none text-sm font-semibold">Do you offer bulk pallets or distributor pricing?</summary>
+            <p class="mt-3 text-sm text-white/70">Yes. Use the contact form to share volume and destination. (Placeholder)</p>
+          </details>
+          <details class="glass rounded-3xl p-5">
+            <summary class="cursor-pointer list-none text-sm font-semibold">Can I private-label / custom brand the tape?</summary>
+            <p class="mt-3 text-sm text-white/70">Add your requirements here (MOQ, lead times, print options). (Placeholder)</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <!-- Contact -->
+    <section id="contact" class="relative border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="grid gap-10 md:grid-cols-2 md:items-start">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight">Get in Touch</h2>
+            <p class="mt-2 max-w-xl text-white/70">Bulk orders, distributor inquiries, or operational questions. Send your details and we’ll respond quickly.</p>
 
-<section class="contact surface-dark">
+            <div class="mt-6 grid gap-3">
+              <div class="glass rounded-3xl p-5">
+                <p class="text-sm font-semibold">What to include</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/75">
+                  <li>• Monthly carton volume</li>
+                  <li>• Carton types (recycled / heavy corrugation)</li>
+                  <li>• Preferred pack size (6/12/24/36)</li>
+                  <li>• Delivery location and timeline</li>
+                </ul>
+              </div>
 
-  <div class="contact-inner">
-    <h2>Get in Touch</h2>
-    <p>
-      Bulk orders, distributor inquiries, or operational questions.
-    </p>
+              <div class="glass rounded-3xl p-5">
+                <p class="text-sm font-semibold">Response time</p>
+                <p class="mt-2 text-sm text-white/70">Add your SLA here (e.g., “We respond within 1 business day”).</p>
+              </div>
+            </div>
+          </div>
 
-    <form action="#" method="post">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
-<footer class="site-footer">
-  <p>© 2026 PackCrux. All Rights Reserved.</p>
-</footer>
+          <form class="glass rounded-3xl p-6" onsubmit="event.preventDefault(); alert('Placeholder: wire this form to your email/CRM.');">
+            <div class="grid gap-4">
+              <div>
+                <label class="text-xs text-white/60">Name</label>
+                <input class="mt-2 w-full rounded-xl border border-white/10 bg-ink-900/40 px-4 py-3 text-sm text-white placeholder:text-white/40" placeholder="Your name" required />
+              </div>
+              <div>
+                <label class="text-xs text-white/60">Email</label>
+                <input type="email" class="mt-2 w-full rounded-xl border border-white/10 bg-ink-900/40 px-4 py-3 text-sm text-white placeholder:text-white/40" placeholder="you@company.com" required />
+              </div>
+              <div>
+                <label class="text-xs text-white/60">Company / Warehouse</label>
+                <input class="mt-2 w-full rounded-xl border border-white/10 bg-ink-900/40 px-4 py-3 text-sm text-white placeholder:text-white/40" placeholder="Company name" />
+              </div>
+              <div>
+                <label class="text-xs text-white/60">Message</label>
+                <textarea rows="5" class="mt-2 w-full rounded-xl border border-white/10 bg-ink-900/40 px-4 py-3 text-sm text-white placeholder:text-white/40" placeholder="Tell us volume, carton type, and pack size…" required></textarea>
+              </div>
 
+              <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-5 py-3 text-sm font-semibold text-ink-900 shadow-soft hover:bg-brand-400">
+                Send Message
+              </button>
+
+              <p class="text-xs text-white/50">This form is a placeholder. Connect it to email/CRM (Formspree, Netlify Forms, HubSpot, etc.).</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-4 py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-3">
+            <img src="https://www.packcrux.us/images/packcrux-logo.png" alt="Packcrux" class="h-6 w-auto" />
+            <p class="text-xs text-white/60">© <span id="year"></span> Packcrux. All rights reserved.</p>
+          </div>
+          <div class="flex flex-wrap gap-4 text-xs text-white/60">
+            <a class="hover:text-white" href="#products">Products</a>
+            <a class="hover:text-white" href="#performance">Performance</a>
+            <a class="hover:text-white" href="#specs">Specs</a>
+            <a class="hover:text-white" href="#faq">FAQ</a>
+            <a class="hover:text-white" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
