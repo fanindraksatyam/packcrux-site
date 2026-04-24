@@ -531,7 +531,7 @@
 
     <!-- Success Message -->
     <p id="form-success" class="text-green-400 text-sm mt-2 hidden">
-      ✅ Thank you! We’ll get back to you within 1 business day.
+      ✅ Thank you! We’ll get back to you within 24-48 hours.
     </p>
 
     <!-- Error Message -->
@@ -602,12 +602,8 @@
             block: "center"
           });
 
-          button.innerText = "✓ Sent";
-
-          setTimeout(() => {
-            button.innerText = "Send Message";
-            button.disabled = false;
-          }, 3000);
+          button.innerText = "Send Message";
+          button.disabled = false;
 
         } else {
           throw new Error("Form submission failed");
